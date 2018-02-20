@@ -9,6 +9,10 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCKJviEuFvyA1_0XPF26YceHdH61IEJzLs"/>
+
 
         <!--
         android:theme="@style/AppTheme"
@@ -39,7 +43,7 @@
         <activity
             android:name=".SportsActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

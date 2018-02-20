@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_drink"
+        android:icon="@drawable/drink"
+        android:title="@string/title_drink" />
+
+    <item
+        android:id="@+id/navigation_nightlife"
+        android:icon="@drawable/nightlife"
+        android:title="@string/title_nightlife" />
+
+    <item
+        android:id="@+id/navigation_trending"
+        android:icon="@drawable/trending"
+        android:title="@string/title_trending" />
+
+    <item
+        android:id="@+id/navigation_food"
+        android:icon="@drawable/food"
+        android:title="@string/title_food" />
+    <item
+        android:id="@+id/navigation_sports"
+        android:icon="@drawable/sports"
+        android:title="@string/title_sports" />
+
+</menu>

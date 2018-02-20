@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Not Just a Guide</string>
+    <string name="google_maps_API_key">AIzaSyBNXTcn6C44eqWAyA_PS-STOO--zEVaY0w</string>
+    <string name="google_places_API_key">AIzaSyCKJviEuFvyA1_0XPF26YceHdH61IEJzLs</string>
     <string name="title_drink">Drink</string>
     <string name="title_nightlife">Nightlife</string>
     <string name="title_trending">Trending</string>

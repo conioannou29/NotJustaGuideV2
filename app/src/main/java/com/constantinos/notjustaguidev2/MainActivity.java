@@ -11,59 +11,56 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.constantinos.notjustaguidev2.model.PlacesModel;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    //private TextView mTextMessage;
-    //private FrameLayout mMainFrame;
-    //private TrendingFragment trendingFragment;
-    //private DrinkFragment drinkFragment;
-    //private NightlifeFragment nightlifeFragment;
-    //private FoodFragment foodFragment;
-    //private SportsFragment sportsFragment;
     private static final String TAG = "MainActivity";
 
-    //vars
+    //var
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
 
     private void getImages(){
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
-        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
-        mNames.add("Havasu Falls");
+        mImageUrls.add("http://mothershipgroup.com/wp-content/uploads/2015/03/patterns-blk-low-624x624.png");
+        mNames.add("Patterns");
 
-        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNames.add("Trondheim");
+        mImageUrls.add("https://pbs.twimg.com/profile_images/3636571478/3d77263fbbb4b46dafd36f86ab7554d7_400x400.jpeg");
+        mNames.add("Burger Brothers");
 
-        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-        mNames.add("Portugal");
+        mImageUrls.add("https://renewable-world.org/app/uploads/2016/11/yellowave_logo.jpg");
+        mNames.add("Yellowave Sports");
 
-        mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
-        mNames.add("Rocky Mountain National Park");
+        mImageUrls.add("https://pbs.twimg.com/profile_images/598523721205297152/kMhM3RF-_400x400.png");
+        mNames.add("Dead Wax Social");
+
+        mImageUrls.add("https://pbs.twimg.com/profile_images/3507778530/92799f4aed9af1de5a5e3f3b45c4f9f5_400x400.png");
+        mNames.add("Resident Music");
+
+        mImageUrls.add("http://www.morgenrot.co.uk/wp-content/uploads/2018/01/BLOCK-logo-300x300.jpg");
+        mNames.add("Block Bar");
 
 
-        mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
-        mNames.add("Mahahual");
+        mImageUrls.add("http://www.b4bguide.com/brighton/wp-content/uploads/sites/2/2015/10/1112_Sorrento-1.jpg");
+        mNames.add("V.I.P.");
 
-        mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
-        mNames.add("Frozen Lake");
-
-
-        mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
-        mNames.add("White Sands Desert");
-
-        mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
-        mNames.add("Austrailia");
-
-        mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
-        mNames.add("Washington");
+        mImageUrls.add("http://www.cloud9brighton.co.uk/wp-content/uploads/2014/11/Cloud9_website_logo.png");
+        mNames.add("Cloud 9");
 
         initRecyclerView();
 
     }
+
 
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: init recyclerview");
@@ -82,43 +79,35 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_drink:
-                    //mTextMessage.setText(R.string.title_drink);
                     Intent drinkIntent = new Intent(getBaseContext(),   DrinkActivity.class);
                     startActivity(drinkIntent);
-                    //setFragment(drinkFragment);
                     return true;
                 case R.id.navigation_nightlife:
-                    //mTextMessage.setText(R.string.title_nightlife);
                     Intent nightlifeIntent = new Intent(getBaseContext(),   NightlifeActivity.class);
                     startActivity(nightlifeIntent);
-                    //setFragment(nightlifeFragment);
                     return true;
                 case R.id.navigation_trending:
-                    //mTextMessage.setText(R.string.title_trending);
-                    //setFragment(trendingFragment);
                     return true;
                 case R.id.navigation_food:
-                    //mTextMessage.setText(R.string.title_food);
                     Intent foodIntent = new Intent(getBaseContext(),   FoodActivityV2.class);
                     startActivity(foodIntent);
-                    //setFragment(foodFragment);
                     return true;
                 case R.id.navigation_sports:
-                    //mTextMessage.setText(R.string.title_sports);
                     Intent sportsIntent = new Intent(getBaseContext(),   SportsActivity.class);
                     startActivity(sportsIntent);
-                    //setFragment(sportsFragment);
                     return true;
             }
             return false;
         }
-
-        //private void setFragment(Fragment fragment) {
-        //    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        //    fragmentTransaction.replace(R.id.main_frame, fragment);
-        //    fragmentTransaction.commit();
-        //}
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.getMenu().getItem(2).setChecked(true);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,19 +119,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        //mMainFrame = (FrameLayout) findViewById(R.id.main_frame);
-        //trendingFragment = new TrendingFragment();
-        //drinkFragment = new DrinkFragment();
-        //nightlifeFragment = new NightlifeFragment();
-        //foodFragment = new FoodFragment();
-        //sportsFragment = new SportsFragment();
+        class JsonToJava {
 
-
-        //mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.getMenu().getItem(2).setChecked(true);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+            public void main(String[] args) throws IOException {
+                try(Reader reader = new InputStreamReader(JsonToJava.class.getResourceAsStream("/assets/dataTrending.json"), "UTF-8")){
+                    Gson gson = new GsonBuilder().create();
+                    PlacesModel places = gson.fromJson(reader, PlacesModel.class);
+                    System.out.println(places);
+                }
+            }
+        }
     }
-
-
 }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:contentDescription="@string/food_cover"
-    tools:context="com.constantinos.notjustaguidev2.FoodActivityV2">
+    tools:context="com.cons.not.FoodActivityV2">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"

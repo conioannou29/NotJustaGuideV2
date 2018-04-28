@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.constantinos.notjustaguidev2.PlacesDesc_Activity">
+    tools:context="com.cons.not.PlacesDesc_Activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -28,16 +28,18 @@
         app:srcCompat="@drawable/details_cover" />
 
     <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="289dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trending_cover">
+        android:scaleType="fitXY"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_cover"
+        >
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardView"
@@ -61,8 +63,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/image_view"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:scaleType="centerCrop"
@@ -74,7 +76,7 @@
                     android:layout_height="20dp"
                     android:layout_below="@+id/image_view"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginTop="5dp"
                     android:autoSizeMaxTextSize="15sp"
                     android:autoSizeMinTextSize="8sp"
@@ -87,14 +89,27 @@
 
         </android.support.v7.widget.CardView>
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="14dp"
+            android:background="#686868" />
+
         <TextView
             android:id="@+id/Description_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/cardView"
-            android:layout_marginStart="55dp"
-            android:layout_toEndOf="@+id/cardView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="14dp"
+            android:textStyle="bold"
+            android:textColor="#607D8B"
             android:text="Description" />
+
 
         <TextView
             android:id="@+id/Description_Details"
@@ -102,90 +117,158 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/Description_Title"
             android:layout_below="@+id/Description_Title"
-            android:text="Yellowave Beach Sports offer beach volleyball, beach soccer, footvolley, beach rugby, climbing and other sand based activities for all ages." />
+            android:textColor="#78909C"
+            android:text=" sand based activities for all ages." />
 
         <TextView
             android:id="@+id/Address_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/cardView"
-            android:layout_below="@+id/Description_Details"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="120dp"
+            android:textStyle="bold"
+            android:textColor="#607D8B"
             android:text="Address" />
 
         <TextView
             android:id="@+id/Address_Details"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/cardView"
+            android:layout_alignStart="@+id/Address_Title"
             android:layout_below="@+id/Address_Title"
+            android:textColor="#78909C"
             android:text="299 Madeira Dr,
-Brighton
-BN2 1EN" />
+            Brighton
+            BN2 1EN" />
 
         <TextView
             android:id="@+id/Phone_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Address_Title"
-            android:layout_below="@+id/Address_Details"
-            android:layout_marginTop="12dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="200dp"
+            android:textStyle="bold"
+            android:textColor="#607D8B"
             android:text="Phone" />
 
         <TextView
             android:id="@+id/Phone_Details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Address_Details"
-            android:layout_below="@+id/Phone_Title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="220dp"
+            android:textColor="#78909C"
             android:text="01273 672222" />
+
+        <ImageButton
+            android:id="@+id/phoneButton"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:scaleType="fitXY"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="220dp"
+            android:background="#ffff"
+            app:srcCompat="@drawable/phone"
+            />
 
         <TextView
             android:id="@+id/Hours_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Phone_Title"
-            android:layout_below="@+id/Phone_Details"
-            android:layout_marginTop="11dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="240dp"
+            android:textStyle="bold"
+            android:textColor="#607D8B"
             android:text="Opening Hours" />
 
         <TextView
             android:id="@+id/Hours_Details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Hours_Title"
-            android:layout_below="@+id/Hours_Title"
-            android:text="10:00 - 21:00 Mon - Fri" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="260dp"
+            android:textColor="#78909C"
+            android:text="10:00 - 21:00" />
 
         <TextView
             android:id="@+id/Website_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Description_Details"
-            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="140dp"
+            android:textStyle="bold"
+            android:textColor="#607D8B"
             android:text="Website" />
 
         <TextView
             android:id="@+id/Website_Details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Website_Title"
-            android:layout_below="@+id/Website_Title"
-            android:text="www.google.com" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="160dp"
+            android:text="www.google.com"
+            android:autoLink="all"
+            android:textColorLink="#a4af42"/>
 
         <TextView
             android:id="@+id/Map_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Website_Details"
-            android:layout_below="@+id/Address_Details"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="180dp"
+            android:textStyle="bold"
+            android:textColor="#607D8B"
             android:text="Map" />
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
+        <TextView
+            android:id="@+id/Map_Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/Description_Title"
-            android:layout_below="@+id/Address_Details" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="200dp"
+            android:textColor="#78909C"
+            android:text="All you need is the plan, the road map and the courage to click and follow the directions to your destination " />
+
+        <TextView
+            android:id="@+id/mapDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/Map_Description"
+            android:layout_below="@+id/Map_Description"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="30dp"
+            android:text="test"
+            android:autoLink="all"
+            android:textColorLink="#a4af42"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignStart="@+id/Map_Description"
+            android:layout_below="@+id/Map_Description"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/pin" />
 
 
     </RelativeLayout>
@@ -207,3 +290,19 @@ BN2 1EN" />
     </android.support.design.widget.BottomNavigationView>
 
 </android.support.constraint.ConstraintLayout>
+
+<!--
+
+<ImageButton
+            android:id="@+id/phoneButton"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:scaleType="fitXY"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="220dp"
+            android:background="#ffff"
+            app:srcCompat="@drawable/phone"
+            />
+-->

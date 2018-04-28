@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="navigationBackground">#fafafa</color>
     <color name="iconColor">#737373</color>
+    <color name="iconActive">#006E60</color>
 </resources>
